@@ -30,6 +30,7 @@ app.get('/', function (req, res) {
 
 const server = app.listen(3000, () => console.log(`🎧 express-browser-reload express sample app server is running on http://localhost:3000`))
 
+// params for express-browser-reload (currently set to the defaults)
 const params = {
   route: '/express-browser-reload.js',
   skipDeletingConnections: false
@@ -41,4 +42,4 @@ require('express-browser-reload')(app, server, params)
 Params API:
 
 - `route`: What Express route to put the client-side JS file on. Default: `/express-browser-reload.js`.
-- `skipDeletingConnections`: Whether to skip purging HTTP connections on the Express server when it restarts. If you're already handling this on your Express server yourself, set this param to `true` to prevent errors.
+- `skipDeletingConnections`: Whether to skip purging HTTP connections on the Express server when it restarts. If you're already handling this on your Express server yourself, set this param to `true` to prevent errors. Default: `false`.
