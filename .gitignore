@@ -1,5 +1,5 @@
 node_modules/
 coverage/
 coverage.lcov
-.nyc_output*
+test-results
 .npm-cache

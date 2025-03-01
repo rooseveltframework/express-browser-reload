@@ -7,7 +7,7 @@
 ## 4.0.0
 
 - Breaking: Forked `reload` to `express-browser-reload` which focuses exclusively on the Express use case, as opposed to `reload` which is a more generalized tool with more features beyond the Express world.
-- Breaking: Altered the architecture to attach the WebSocket server to an existing Express server rather than creating a new server to run alongisde it.
+- Breaking: Altered the architecture to attach the WebSocket server to an existing Express server rather than creating a new server to run alongside it.
 - Breaking: Removed support for some older browsers as well as checks to see if you're running an older browser to simplify the code and make it easier to maintain.
 - Breaking: Removed all params except for `route`.
 - Added a new param `skipDeletingConnections` which will skip purging HTTP connections on the Express server when it restarts. If you're already handling this on your Express server yourself, set this param to `true` to prevent errors.
@@ -55,10 +55,13 @@ A bunch of dependency updates and some project maintenance
 Happy New Year!
 
 * Drop 12.x and add 18.x on CI - See: <https://github.com/alallier/reload/pull/328>
+
 * Update CI actions/checkout to v3 - See: <https://github.com/alallier/reload/pull/318>
+
 * Update CI actions/setup-node to v3 - See: <https://github.com/alallier/reload/pull/319>
 
 * Dependency Updates
+  
   * Update ws from ~7.4.0 to ~8.11.0 - See: <https://github.com/alallier/reload/pull/307>
   * Update express from 4.17.1 to 4.18.2 - See: <https://github.com/alallier/reload/pull/315>
   * Update finalhandler from ~1.1.1 to ~1.2.0 - See: <https://github.com/alallier/reload/pull/316>
@@ -158,7 +161,6 @@ Happy New Year!
 * Use package.json files instead of `.npmignore`. See: https://github.com/alallier/reload/pull/209
 * Update CONTRIBUTING.md file for collaborators to ensure the sample app's reload version matches reload upstream. See: https://github.com/alallier/reload/pull/210
 
-
 3.0.1 / 2019-04-20
 ------------------
 
@@ -209,20 +211,20 @@ Consult [Migration Guide](MIGRATION_GUIDE.md) for help with updating from Versio
 ## Breaking/Added
 
 * Reload now returns a promise
-    * Functions in the return API also return promises
-        * `closerServer`
-        * `startWebSocketServer`
-    * Reload returns errors in promises
+  * Functions in the return API also return promises
+    * `closerServer`
+    * `startWebSocketServer`
+  * Reload returns errors in promises
 
 ## Added
 
 * Added unit tests. (See: https://github.com/alallier/reload/issues/42)
 * Added coverage analyzer
-    * Coverage 100% on `reload.js` file
+  * Coverage 100% on `reload.js` file
 * Added node 10 and 11 to the official supported list
 * Added support for HTTPS
-    * Cert and Key or PFX/P12
-    * Note: This was available in version 1 and then was dropped in Version 2
+  * Cert and Key or PFX/P12
+  * Note: This was available in version 1 and then was dropped in Version 2
 * Added [sample app README](expressSampleApp/README.md) (See: https://github.com/alallier/reload/issues/45)
 * Added [MIGRATION_GUIDE](MIGRATION_GUIDE.md) to help with migrating across major versions of reload
 * Added force wss option
@@ -243,6 +245,7 @@ Consult [Migration Guide](MIGRATION_GUIDE.md) for help with updating from Versio
 
 2.4.0 / 2018-12-02
 ------------------
+
 * Added new `-f` or `--fallback` command-line flag. See: MR https://github.com/alallier/reload/pull/167. Issue: https://github.com/alallier/reload/issues/164
 * Allow HTML pages to be routed with `.html`. See: MR https://github.com/alallier/reload/pull/167. Issue: https://github.com/alallier/reload/issues/166
 
@@ -296,6 +299,7 @@ Fixed regression causing reload command line to only serve HTML files. See: http
 See V2.0.0 PR https://github.com/alallier/reload/pull/118
 
 ### Added
+
 * Added object based parameters (Issue [#77](https://github.com/alallier/reload/issues/77) / Originally solved in PR [#101](https://github.com/alallier/reload/pull/101) and refactored in [#104](https://github.com/alallier/reload/pull/104))
 * Added port configuration (Issue [#60](https://github.com/alallier/reload/issues/60) / Originally solved in PR [#68](https://github.com/alallier/reload/pull/68) and refactored in [#104](https://github.com/alallier/reload/pull/104))
 * Added timestamp to reload command line reloading (Issue [#7](https://github.com/alallier/reload/issues/7) / PR [#78](https://github.com/alallier/reload/pull/78))
@@ -304,19 +308,23 @@ See V2.0.0 PR https://github.com/alallier/reload/pull/118
 * Added return API to README (PR [#121](https://github.com/alallier/reload/pull/121))
 
 ### Modified
+
 * Abstracted reload call to an index.js file. Index file now calls `reload.js` source file. This is to abstract the reload command line calling with a third argument that is now private and not apart of the public API (PR [#117](https://github.com/alallier/reload/pull/117))
 * Update dependencies to latest and add package-lock.json files (PR [#109](https://github.com/alallier/reload/pull/109))
 * Audited and refactored return API (Issue [#120](https://github.com/alallier/reload/issues/120) / PR [#121](https://github.com/alallier/reload/pull/121))
 
 ### Removed
+
 * Drop support for server and just use ports (Issue [#102](https://github.com/alallier/reload/issues/102) / PR [#104](https://github.com/alallier/reload/pull/104))
 * Removed support of node 0.1 and 0.12 (Issue [#73](https://github.com/alallier/reload/issues/73) / PR [#86](https://github.com/alallier/reload/pull/86))
 * Separate server and app initialization into two parts. (This was originally fixed in PR [#71](https://github.com/alallier/reload/pull/71) but was reversed in PR [#104](https://github.com/alallier/reload/pull/104) when the decision to drop server was made.)
 
 ### API Breaking Changes
+
 This version makes breaking changes to the reload API. The only required argument to reload now is `app`. This makes reload a lot [easier](https://github.com/jprichardson/reload/pull/104) to use. Reload takes a maximum of two arguments `app` and an `opts` (options) object with the following optional parameters, `port`, `route`, and `verbose`. Reload runs on default port `9856` unless otherwise specified in the `opts` object.
 
 #### How to upgrade from Version 1 to Version 2
+
 Before Version 2 reload always attached to your server's port by passing the server in a argument to reload. We have now dropped support for server and reload runs on ports only. Reload now has one required parameter `app` and one optional parameter `opts` an object of reload options. Below are two upgrade examples for the only two possible 1.x configurations.
 
 Upgrade with required arguments: `reload(server, app)` becomes `reload(app)`
@@ -331,6 +339,7 @@ Please refer to the full API in the [README](README.md#api-for-express).
 
 1.1.7 / 2017-06-28
 ------------------
+
 Repository ownership was transfered from jprichardson to alallier
 
 - Updated Travis badge after ownership change. See: https://github.com/alallier/reload/pull/116
@@ -340,55 +349,68 @@ Repository ownership was transfered from jprichardson to alallier
 
 1.1.6 / 2017-06-18
 ------------------
+
 Add Mac building in Travis. See https://github.com/jprichardson/reload/pull/98
 
 1.1.5 / 2017-05-13
 ------------------
+
 Fixed standard call so that our bin file also got tested. See https://github.com/jprichardson/reload/pull/85
 
 1.1.4 / 2017-05-13
 ------------------
+
 Added AppVeyor to build our tests in an Windows environment. See https://github.com/jprichardson/reload/pull/92
 
 1.1.3 / 2017-04-28
 ------------------
+
 Upgrade Standard to `~10.0.2` in order for the build to pass node `0.1` and `0.12`
 Also removed depricated `fs.exists` and replaced with `fs.access`
 See: https://github.com/jprichardson/reload/pull/75
 
 1.1.2 / 2017-04-16
 ------------------
+
 Fix multiple websockets at once when using reload.reload(); See: https://github.com/jprichardson/reload/pull/57
 
 1.1.1 / 2017-01-28
 ------------------
+
 Fixed undefined error log on send message. See: https://github.com/jprichardson/reload/pull/59
 
 1.1.0 / 2016-11-12
 ------------------
+
 Added client end web socket support for https. See: https://github.com/jprichardson/reload/pull/54
 
 1.0.2 / 2016-10-31
 ------------------
+
 Added error handling to websocket send. See: https://github.com/jprichardson/reload/pull/49
 
 1.0.1 / 2016-07-15
 ------------------
+
 Fixed onbeforeunload event not firing in reload-client See: https://github.com/jprichardson/reload/pull/46
 
 1.0.0 / 2016-06-24
 ------------------
+
 Added
+
 - Two new badges to the README (code-style and npm version)
 - Verbose mode as option for both Express and command line usage
 - A sample app for express
 
 Modified
+
 - Re-wrote the README to reflect all of these changes
 - Updated dependencies to their latest version’s
 - Fixed race condition that caused reload to spam the server when using sockets for automatic reloading
 
 Removed
+
 - All delays (wait, normal, and socket) (Reload is now all automatic using web sockets (no delays at all))
 - Client side sockjs web sockets (removed sockjs) (Now using native web sockets on the client side and ws on server side)
 
@@ -396,53 +418,65 @@ See: https://github.com/jprichardson/reload/pull/41
 
 0.8.2 / 2016-06-24
 ------------------
+
 - Fixed regression caused by Windows line endings. See: https://github.com/jprichardson/reload/pull/40
 
 0.8.1 / 2016-06-05
 ------------------
+
 - Allow reload from node server. See: https://github.com/jprichardson/reload/pull/38
 
 0.8.0 / 2015-12-21
 ------------------
+
 - fixed `hostname` flag. See: https://github.com/jprichardson/reload/pull/34
 - use `exts` from command line. See: https://github.com/jprichardson/reload/pull/32
 
 0.7.0 / 2015-10-21
 ------------------
+
 - fixed `wait` flag: https://github.com/jprichardson/reload/pull/27
 
 0.6.0 / 2015-10-12
 ------------------
+
 - added `hostname/ -h` flag. See: https://github.com/jprichardson/reload/issues/14 and https://github.com/jprichardson/reload/pull/28
 
 0.5.0 / 2015-09-28
 ------------------
+
 - renamed `delay` flag to `reloadDelay`. See: https://github.com/jprichardson/reload/pull/26
 - added `wait` flag. See: https://github.com/jprichardson/reload/pull/26
 
 0.4.0 / 2015-08-17
 ------------------
+
 - add `true` option to `delay` so that it waits indefinitely until server is up https://github.com/jprichardson/reload/pull/21
 - express 4 routes, https://github.com/jprichardson/reload/pull/24
 
 0.3.0 / 2015-07-17
 ------------------
+
 - added option for start page. See: https://github.com/jprichardson/reload/pull/20
 
 0.2.0 / 2015-06-29
 ------------------
+
 * Added Express 4 Support
 
 0.1.0 / 2013-09-30
 ------------------
+
 * silence sockjs
 * created `reload` bin that is useful for browser/html development
 
 0.0.2 / 2013-03-14
 ------------------
+
 * fixed bug that caused failure on hashbang urls
 * set proper mime type on reload.js client side script
 
 0.0.1 / 2013-03-13
 ------------------
+
 * Initial release.
