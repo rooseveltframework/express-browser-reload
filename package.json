@@ -1,15 +1,38 @@
 {
-  "name": "reload",
-  "version": "3.3.0",
-  "files": [
-    "bin",
-    "lib",
-    "index.js"
+  "name": "express-browser-reload",
+  "description": "✨ Node.js module to refresh your browser when your Express server restarts.",
+  "author": "Roosevelt Framework Team <rooseveltframework@gmail.com>",
+  "contributors": [
+    {
+      "name": "Contributors",
+      "url": "https://github.com/rooseveltframework/express-browser-reload/graphs/contributors"
+    },
+    "Alexander J. Lallier <alexanderlallier@gmail.com>",
+    "JP Richardson <jprichardson@gmail.com>"
   ],
-  "description": "Node.js module to refresh and reload your code in your browser when your code changes. No browser plugins required.",
+  "version": "4.0.0",
+  "homepage": "https://github.com/rooseveltframework/express-browser-reload",
+  "license": "CC-BY-4.0",
+  "main": "express-browser-reload.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.50.1",
+    "express": "4.21.2",
+    "standard": "17.1.2"
+  },
+  "scripts": {
+    "sample1": "node -e \"process.chdir('sampleApps/express'); require('./sampleApps/express/server1.js')\"",
+    "sample2": "node -e \"process.chdir('sampleApps/express'); require('./sampleApps/express/server2.js')\"",
+    "sample3": "node -e \"process.chdir('sampleApps/express'); require('./sampleApps/express/server3.js')\"",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "test": "playwright test"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:alallier/reload.git"
+    "url": "git://github.com/rooseveltframework/express-browser-reload.git"
   },
   "keywords": [
     "reload",
@@ -18,38 +41,5 @@
     "express",
     "development"
   ],
-  "author": "JP Richardson <jprichardson@gmail.com>",
-  "contributors": [
-    "Alexander J. Lallier <alexanderlallier@gmail.com>"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "cli-color": "~2.0.0",
-    "commander": "~12.1.0",
-    "finalhandler": "~1.2.0",
-    "minimist": "~1.2.0",
-    "nodemon": "~3.1.4",
-    "open": "^8.0.0",
-    "serve-static": "~1.15.0",
-    "ws": "~8.18.0"
-  },
-  "devDependencies": {
-    "sinon": "18.0.0",
-    "standard": "17.1.0",
-    "express": "4.19.2",
-    "mocha": "10.7.3",
-    "nyc": "17.0.0"
-  },
-  "main": "./index.js",
-  "scripts": {
-    "test": "npm run standard && npm run unitTests",
-    "unitTests": "mocha --recursive --timeout 5000 test",
-    "standard": "standard \"**/*.js\" \"bin/**/*\"",
-    "cover": "nyc --reporter=html --reporter=text mocha --timeout 5000 --recursive test",
-    "coverage": "npm run cover",
-    "make-coverage": "nyc npm run unitTests && nyc report --reporter=text-lcov > coverage.lcov"
-  },
-  "bin": {
-    "reload": "./bin/reload"
-  }
+  "funding": "https://www.paypal.com/donate/?hosted_button_id=2L2X8GRXZCGJ6"
 }

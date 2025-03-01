@@ -1,5 +1,20 @@
-Next version
-------------------
+# Changelog
+
+## Next version
+
+- Put your changes here...
+
+## 4.0.0
+
+- Breaking: Forked `reload` to `express-browser-reload` which focuses exclusively on the Express use case, as opposed to `reload` which is a more generalized tool with more features beyond the Express world.
+- Breaking: Altered the architecture to attach the WebSocket server to an existing Express server rather than creating a new server to run alongisde it.
+- Breaking: Removed support for some older browsers as well as checks to see if you're running an older browser to simplify the code and make it easier to maintain.
+- Breaking: Removed all params except for `route`.
+- Added a new param `skipDeletingConnections` which will skip purging HTTP connections on the Express server when it restarts. If you're already handling this on your Express server yourself, set this param to `true` to prevent errors.
+- Refactored the code to make it simpler and easier to maintain.
+- Updated dependencies.
+
+Previous updates before the hard fork of `reload` to `express-browser-reload` are below. The original project can be found at https://github.com/alallier/reload
 
 3.3.0 / 2024-08-14
 ------------------
