@@ -12,7 +12,7 @@ This project is a hard fork of [reload](https://github.com/alallier/reload), whi
 const express = require('express')
 const app = express()
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.type('text/html')
   res.send(`<!doctype html>
 <html>
