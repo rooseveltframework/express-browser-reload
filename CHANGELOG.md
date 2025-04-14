@@ -1,9 +1,3 @@
-# Changelog
-
-## Next version
-
-- Put your changes here...
-
 ## 4.0.0
 
 - Breaking: Forked `reload` to `express-browser-reload` which focuses exclusively on the Express use case, as opposed to `reload` which is a more generalized tool with more features beyond the Express world.
@@ -61,7 +55,7 @@ Happy New Year!
 * Update CI actions/setup-node to v3 - See: <https://github.com/alallier/reload/pull/319>
 
 * Dependency Updates
-  
+
   * Update ws from ~7.4.0 to ~8.11.0 - See: <https://github.com/alallier/reload/pull/307>
   * Update express from 4.17.1 to 4.18.2 - See: <https://github.com/alallier/reload/pull/315>
   * Update finalhandler from ~1.1.1 to ~1.2.0 - See: <https://github.com/alallier/reload/pull/316>
