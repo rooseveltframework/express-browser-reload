@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/express-browser-reload.svg)](https://www.npmjs.com/package/express-browser-reload)
+[![npm](https://img.shields.io/npm/v/express-browser-reload.svg)](https://www.npmjs.com/package/express-browser-reload) ✨ **express-browser-reload**
 
 Node.js module to refresh your browser when your [Express](https://expressjs.com) server restarts. Works by using a [WebSocket](https://en.wikipedia.org/wiki/WebSocket) to the server and waits for the WebSocket to close to detect the server restarting. Once the server comes back up, the page will be reloaded.
 
