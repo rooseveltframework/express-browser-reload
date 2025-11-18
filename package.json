@@ -18,8 +18,8 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@playwright/test": "1.50.1",
-    "express": "4.21.2",
+    "@playwright/test": "1.56.1",
+    "express": "5.1.0",
     "standard": "17.1.2"
   },
   "scripts": {
