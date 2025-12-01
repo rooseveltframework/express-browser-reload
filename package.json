@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",
-    "express": "5.1.0",
+    "express": "5.2.0",
     "standard": "17.1.2"
   },
   "scripts": {
