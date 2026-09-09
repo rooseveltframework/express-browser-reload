@@ -22,7 +22,7 @@ jobs:
       - run: npm run coverage
       - name: Upload coverage to Codecov
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == '24.x'
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           files: coverage.lcov
           fail_ci_if_error: false
