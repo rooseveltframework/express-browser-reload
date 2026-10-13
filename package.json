@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "express": "5.2.1",
-    "playwright": "1.63.0",
+    "playwright": "1.64.0",
     "standard": "17.1.2"
   },
   "scripts": {
